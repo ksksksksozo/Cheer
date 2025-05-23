@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>จดหมายถึงมิกกี้ 💌</title>
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(to bottom, #ffe6f0, #fff0f5);
+      background-image: url('https://www.transparenttextures.com/patterns/hearts.png');
+      font-family: 'Kanit', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .envelope {
+      background-color: #fff;
+      border: 2px dashed #ffa6c9;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      max-width: 400px;
+      text-align: center;
+      position: relative;
+    }
+
+    .envelope:hover {
+      transform: scale(1.03);
+    }
+
+    .letter {
+      display: none;
+      margin-top: 20px;
+      background: #fff0f8;
+      border: 2px solid #ffa6c9;
+      border-radius: 10px;
+      padding: 25px;
+      text-align: left;
+      font-size: 1.05em;
+      color: #5a2a47;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    }
+
+    .letter p {
+      margin: 0 0 10px 0;
+      line-height: 1.6;
+    }
+
+    .close-btn {
+      margin-top: 15px;
+      padding: 6px 16px;
+      background-color: #ffa6c9;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 0.9em;
+      cursor: pointer;
+    }
+
+    .heart {
+      position: absolute;
+      top: -20px;
+      font-size: 24px;
+      animation: fall 2s linear forwards;
+    }
+
+    @keyframes fall {
+      0% { opacity: 1; transform: translateY(0) scale(1); }
+      100% { opacity: 0; transform: translateY(300px) scale(1.5); }
+    }
+  </style>
+</head>
+<body>
+
+<div class="envelope" onclick="openLetter()">
+  <h2>สวัสดีคับคนน่ารักกก วันนี้เหนื่อยม้ายยคะ เค้ามีไรจะบอก 💌</h2>
+  <div class="letter" id="letter">
+    <p>เห็นคนอื่นทำเย้ออมากก เลยอยากทำบ้างง</p>
+    <p>ขอบคุณมิกกี้มากมากกกที่รักเค้า</p>
+    <p>น่ารักกับเค้ามากๆๆมาตลอด</p>
+    <p>เค้าสัญญาน้าา ว่าเค้าจะน่ารักกับมิกกี้</p>
+    <p>ม่ายดื้อม่ายซน ตั้งใจเรียนนน </p>
+    <p>เป็นคนเก่งของเธอน้า</p>
+    <p>รักที่สุดเล้ยยยย</p>
+    <p>ปล. ดูเว่อไหม 6262622625</p>
+    <p>อยากลองเล่นดูง่ะ</p>
+    <button class="close-btn" onclick="closeLetter(event)">ปิดจดหมาย</button>
+  </div>
+</div>
+
+<script>
+  function openLetter() {
+    const letter = document.getElementById("letter");
+    letter.style.display = "block";
+
+    for (let i = 0; i < 15; i++) {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerText = "❤️";
+      heart.style.left = Math.random() * 100 + "%";
+      heart.style.fontSize = Math.random() * 10 + 18 + "px";
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 2000);
+    }
+  }
+
+  function closeLetter(event) {
+    event.stopPropagation();
+    document.getElementById("letter").style.display = "none";
+  }
+</script>
+
+</body>
+</html>
